@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <h2 style="text-align: center; margin: 50px 0 50px 0; color: #0275d8; font-family: 'Oswald', sans-serif">Schritt für
+        Schritt Anleitung zur Bedienung der Software</h2>
+    <hr>
+    <ol>
+        <li>Laden Sie sich den Code von GitHub runter <br> <a href="https://github.com/peetSoft/Bank_Transactions"><img
+                src="../static/images/git_hub_64px.png" alt="" class="center img-margin"></a></li>
+        <hr>
+        <li>Installieren Sie die requirements.txt Abhängigkeiten
+            <img src="../static/images/requirements.png" alt="" class="center img-margin">
+        </li>
+        <hr>
+        <li>Exportieren Sie eine CSV von ihrem Online-Banking <img src="../static/images/sparkasse_export.png" alt=""
+                                                                   class="center img-margin"></li>
+        <hr>
+        <li>
+            Kopieren sie die CSV mit den Transaktionen in die Ordnerstruktur
+            <span style="display: inline"><h5>files ist hier die working-directory</h5></span>
+            <img src="../static/images/folder_structure.png#" alt=""
+                 class="center img-margin">
+        </li>
+        <hr>
+        <li>
+            Richten Sie Ihre Kategorien ein
+            <span style="display: inline"><h5>Der filename muss mit einem Unterstrich beginnen</h5></span>
+            <img src="../static/images/categories_1.png" alt=""
+                 class="center img-margin">
+
+        </li>
+        <hr>
+        <li>
+            Starten Sie das Script program_starter.py
+            <img src="../static/images/program_starter.png" alt=""
+                 class="center img-margin">
+
+        </li>
+        <hr>
+        <li>
+            Sie finden den Output unter report.xlsx
+            <img src="../static/images/report.png" alt=""
+                 class="center img-margin">
+        </li>
+        <hr>
+        <li>
+            Beispielbilder Output
+            <img src="../static/images/beispiel_1.png" alt=""
+                 class="center img-margin">
+            <img src="../static/images/beispiel_2.png" alt="" style="margin-top: 70px"
+                 class="center">
+        </li>
+
+    </ol>
+{% endblock %}
+
