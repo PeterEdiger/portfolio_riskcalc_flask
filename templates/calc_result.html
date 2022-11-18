@@ -6,7 +6,12 @@
 {% block result %}
 
     <hr>
-    <p>Aktueller Kurs:{{ kurs }}</p>
-    <p>Stop-Loss bei {{ stop_dollar }}$</p>
-    <p>Verlust {{ verlust_dollar }}$</p>
+    {% if user_warning %}
+        <p>{{ user_warning }}</p>
+    {% else %}
+        <p>Aktueller Kurs:{{ kurs }}</p>
+        <p>Stop-Loss bei {{ stop_dollar }}$</p>
+        <p>Verlust {{ verlust_dollar }}$</p>
+    {% endif %}
+
 {% endblock %}
