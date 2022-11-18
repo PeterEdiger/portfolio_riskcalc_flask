@@ -5,6 +5,8 @@
 {% endblock %}
 {% block result %}
 
-    <p>{{ kurs }}</p>
-    <p></p>
+    <hr>
+    <p>Aktueller Kurs:{{ kurs }}</p>
+    <p>Stop-Loss bei {{ stop_dollar }}$</p>
+    <p>Verlust {{ verlust_dollar }}$</p>
 {% endblock %}

@@ -2,12 +2,16 @@
 
 <body>
 <form action="/calc_result" method="get">
-    <p>Aktueller Kurs</p>
+    <h5>Aktueller Kurs</h5>
     <p><input type="number" name="kurs"></p>
     <h5>Stop-Loss $</h5>
     <p><input type="number" name="stop_loss_dollar"></p>
     <h5>Stop-Loss % </h5>
     <p><input type="number" name="stop_loss_prozent"></p>
+    <h5>Take-Profit $</h5>
+    <p><input type="number" name="take_profit_dollar"></p>
+    <h5>Take-Profit % </h5>
+    <p><input type="number" name="take_profit_prozent"></p>
     <p><input type="submit" value="Submit"></p>
 
     {% block result %}{% endblock %}
