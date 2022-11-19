@@ -11,7 +11,8 @@
     {% else %}
         <p>Aktueller Kurs:{{ kurs }}</p>
         <p>Stop-Loss bei {{ stop_dollar }}$</p>
-        <p>Verlust {{ verlust_dollar }}$</p>
+        <p>Verlust {{ verlust_dollar }}$ oder {{ 100 *  verlust_dollar//kurs }}%</p>
+        <p></p>
     {% endif %}
 
 {% endblock %}
