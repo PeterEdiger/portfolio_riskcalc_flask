@@ -2,18 +2,43 @@
 
 <body>
 <form action="/calc_result" method="get">
-    <h5>Aktueller Kurs</h5>
-    <p><input type="number" name="kurs"></p>
-    <h5>Abverkauf beim Preis von $</h5>
-    <p><input type="number" name="selling_threshold_loss_dollar"></p>
-    <h5>Stop-Loss % </h5>
-    <p><input type="number" name="loss_prct"></p>
-{#    <h5>Take-Profit $</h5>#}
-{#    <p><input type="number" name="take_profit_dollar"></p>#}
-{#    <h5>Take-Profit % </h5>#}
-{#    <p><input type="number" name="take_profit_prozent"></p>#}
-    <p><input type="submit" value="Submit"></p>
-
+    <div>
+        <label><h5>Stückzahl</h5></label>
+        <p><label>
+            <input type="number" name="quantity">
+        </label></p>
+    </div>
+    <div>
+        <label><h5>Aktueller Kurs</h5></label>
+        <p><label>
+            <input type="number" name="kurs">
+        </label></p>
+    </div>
+    <div>
+        <h5>Abverkauf beim Preis von $</h5>
+        <p><label>
+            <input type="number" name="selling_threshold_loss_dollar">
+        </label></p>
+    </div>
+    <div class="input_inline">
+        <h5>Stop-Loss % </h5>
+        <p><label class="input_label_inline">
+            <input type="number" name="loss_prct">
+        </label></p>
+    </div>
+    <div>
+        <h5>Take-Profit beim Kurs von $</h5>
+        <p><label>
+            <input type="number" name="selling_threshold_win_dollar">
+        </label></p>
+    </div>
+    <div>
+        <h5>Take-Profit % </h5>
+        <p><label>
+            <input type="number" name="win_prct">
+        </label></p>
+        <p><input type="submit" value="Submit"></p>
+    </div>
     {% block result %}{% endblock %}
 </form>
 </body>

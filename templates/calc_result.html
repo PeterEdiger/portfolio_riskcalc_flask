@@ -8,11 +8,22 @@
     <hr>
     {% if user_warning %}
         <p>{{ user_warning }}</p>
-    {% else %}
-        <p>Aktueller Kurs:{{ kurs }}</p>
-        <p>Stop-Loss bei {{ stop_dollar }}$</p>
-        <p>Verlust {{ verlust_dollar }}$ oder {{ 100 *  verlust_dollar//kurs }}%</p>
-        <p></p>
     {% endif %}
+    {# When all of this conditions come as arguments from app.py render_template() following tags will
+be rendered#}
+    {% if kurs and selling_threshold_loss_dollar and total_invest and loss_dollar and total_loss and loss_prct %}
+        <p>Gesamt Investition:{{ total_invest }}</p>
+        <p>Stop-Loss bei {{ selling_threshold_loss_dollar }}$</p>
+        <p>Verlust pro Aktie {{ loss_dollar }}$ oder {{ loss_prct }}%</p>
+        <p>Total Verlust {{ total_loss }}</p>
+    {% endif %}
+    {% if kurs and selling_threshold_win_dollar and gewinn_dollar %}
+        <p>Gesamt Investition:{{ kurs }}</p>
+        <p>Take-Profit bei {{ selling_threshold_win_dollar }}$</p>
+        <p>Gewinn{{ gewinn_dollar }}$ oder {{ gewinn_dollar // (kurs /100) }}%</p>
+    {% endif %}
+
+    {#        <p>Gewinn {{ gewinn_dollar }}$ oder {{ gewinn_dollar / (kurs /100) }} %</p>#}
+    {#        <p>Gewinn in % {{ win_prct }} </p>#}
 
 {% endblock %}

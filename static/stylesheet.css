@@ -7,9 +7,10 @@ body {
     background-color: lightblue;
 }
 
-hr{
-  border-top: 1px solid black;
+hr {
+    border-top: 1px solid black;
 }
+
 img {
     filter: drop-shadow(0 0 10px #000000);
 }
@@ -17,7 +18,7 @@ img {
 li {
     margin: 40px;
     font-size: 30px;
-    font-family:  'Oswald', sans-serif ;
+    font-family: 'Oswald', sans-serif;
     font-style: italic;
 }
 
@@ -55,11 +56,19 @@ li {
     width: 40%;
 }
 
+
 .img-margin {
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
+.input_inline {
+    display: inline-block;
+}
+
+.input_label_inline{
+    display: block;
+}
 /*****************IDs*********************/
 
 #box {
