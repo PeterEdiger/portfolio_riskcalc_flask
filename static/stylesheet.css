@@ -56,6 +56,10 @@ li {
     width: 40%;
 }
 
+.form-style {
+    width: 150px;
+
+}
 
 .img-margin {
     margin-top: 30px;
@@ -64,10 +68,11 @@ li {
 
 .input_inline {
     display: inline-block;
+    padding-right: 30px;
 }
 
 .input_label_inline{
-    display: block;
+    display: inline-block;
 }
 /*****************IDs*********************/
 
