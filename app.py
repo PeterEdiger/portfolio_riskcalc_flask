@@ -9,7 +9,12 @@ def hello_world():  # put application's code here
     return render_template("home.html")
 
 
-@app.route('/banking')
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
+
+@app.route('/banking', methods=["POST", "GET"])
 def banking():
     return render_template("banking.html")
 
@@ -19,8 +24,20 @@ def risk_calc():
     return render_template("calc_risk.html")
 
 
+@app.route('/lebenslauf', methods=["POST"])
+def lebenslauf():
+    password = request.form["password"]
+    if password == "111":
+        return render_template("lebenslauf.html")
+    return render_template("about.html")
+
+
 @app.route('/calc_result', methods=["POST", "GET"])
 def calc_result():
+    """
+    This function calculates different characteristics of financial trades.
+    f.E Stop-Loss, Take-Profit, risk-reward ratio, position-size
+    """
     # ------------------------Stückzahl einlesen default Wert = 1---------------------#
     #
     quantity = request.args.get("quantity")
@@ -31,7 +48,7 @@ def calc_result():
     # --------------------------------------------------------------------------------#
     # Kurs einlesen, wenn nicht vorhanden --> user_message
     kurs_str = request.args.get("kurs")
-    if kurs_str == "":
+    if not kurs_str:
         # No price input case
         return render_template("calc_result.html", user_warning="Bitte Kurs eingeben")
     else:
@@ -74,6 +91,10 @@ def calc_result():
     if loss_prct_str:
         loss_prct_int = int(loss_prct_str)
         s_t_l_d_i = kurs_int * ((100 - loss_prct_int) / 100)
+
+    # -------------------------Fall tolerated_loss no s_t_l_d_i-------------------------------------- #
+    if tolerated_loss_str and not s_t_l_d_i:
+        return rt("calc_result.html", user_warning=" Bitte ein Verlust eintragen")
 
     if tolerated_loss_str:
         tolerated_loss_int = int(tolerated_loss_str)
@@ -151,5 +172,3 @@ Abkürzungen benutzen für die Übersicht?
 # andere aktualisiert.
 #  Die Html forms sollen ausgefüllt bleiben, (vertagt)
 #  Html forms sollen wenn es Sinn macht automatisch ausgefüllt werden (vertagt)
-
-
