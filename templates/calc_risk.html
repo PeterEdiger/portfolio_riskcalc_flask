@@ -2,6 +2,7 @@
 
 
 {#--------------------- Forms Quantity Price --------------------------#}
+<div style="margin-left: 10px">
 <form action="/calc_result" method="get" style="padding-top: 50px">
     <div class="input_inline">
         <label><h5>Stückzahl: </h5></label>
@@ -83,7 +84,9 @@
     <div>
         <p><input type="submit" value="Submit" class="form-style"></p>
     </div>
+
     {% block result %}{% endblock %}
 </form>
+</div>
     {% block user_warning %}
     {% endblock %}

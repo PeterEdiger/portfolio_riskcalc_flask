@@ -1,6 +1,5 @@
-from risk_calculations import loss_dollar_calc
-from flask import Flask, render_template, request
-
+from flask import Flask, render_template, request, send_file
+from pw import my_password
 app = Flask(__name__)
 
 
@@ -19,6 +18,12 @@ def banking():
     return render_template("banking.html")
 
 
+@app.route('/download', methods=["POST", "GET"])
+def download():
+    path = 'static/lebenslauf.pdf'
+    return send_file(path, as_attachment=True)
+
+
 @app.route('/calc_risk')
 def risk_calc():
     return render_template("calc_risk.html")
@@ -27,7 +32,7 @@ def risk_calc():
 @app.route('/lebenslauf', methods=["POST"])
 def lebenslauf():
     password = request.form["password"]
-    if password == "111":
+    if password == my_password:
         return render_template("lebenslauf.html")
     return render_template("about.html")
 
@@ -110,6 +115,14 @@ def calc_result():
         win_prct_int = int(win_prct_str)
         s_t_w_d_i = round(kurs_int * ((100 + win_prct_int) / 100))
 
+    # Loss Angabe größer als Kurs
+    if s_t_l_d_i and s_t_l_d_i > kurs_int:
+        return rt("calc_result.html", user_warning="Die Verlust Angabe muss kleiner sein als der Kurs")
+
+    # Win Angabe kleiner als Kurs
+    if s_t_w_d_i and s_t_w_d_i < kurs_int:
+        return rt("calc_result.html", user_warning="Die Gewinn Angabe muss größer sein als der Kurs")
+
     if not s_t_l_d_i and not s_t_w_d_i:
         return render_template("calc_result.html", user_warning="Mehr Angaben benötigt.")
 
@@ -165,8 +178,8 @@ Optische Aufteilung der Suchfenster Gewinn rechts neben Verlust
 Abkürzungen benutzen für die Übersicht?
 """
 
-# todo None Variablen sollen nicht auf der html Seite erscheinen
-
+# todo Banking Software dockerizen
+# todo readme auf GitHub und auf der Portfolio page überarbeiten.
 # ----- Mögliche Verbesserungen -------#
 # Einfachsten Faller zwei Felder / beim manipulieren von einem Fenster wird das
 # andere aktualisiert.

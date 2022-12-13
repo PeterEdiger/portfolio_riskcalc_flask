@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
 {% block body %}
-<h1>Das is Lebenslauf Seite</h1>
+<p class="advertise-font">Laden Sie den Lebenslauf runter</p>
+<div style="text-align: center">
+    <a class="btn btn-success" style="background-color: #3D6AA2" href="{{url_for('download')}}">Lebenslauf</a>
+</div>
 {% endblock %}
